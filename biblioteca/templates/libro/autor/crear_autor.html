@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+{% block titulo %}
+	Crear Autor
+{% endblock titulo %}
+{% block body %}
+	<form action="" method="POST">
+		{% csrf_token %}
+		{% if error %}
+			<h3>{{ error }}</h3>
+		{% else %}
+			<div class="card">
+				<div class="card-header">
+					<strong>Formulario de Registro</strong>
+				</div>
+				<div class="card-body card-block">
+					<form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+						<div class="row form-group">
+							<div class="col col-md-3">{{ form.nombre.label }}</div>
+							<div class="col-12 col-md-9">{{ form.nombre }}</div>
+						</div>
+						<div class="row form-group">
+							<div class="col col-md-3">{{ form.apellido.label }}</div>
+							<div class="col-12 col-md-9">{{ form.apellido }}</div>
+						</div>
+						<div class="row form-group">
+							<div class="col col-md-3">{{ form.nacionalidad.label }}</div>
+							<div class="col-12 col-md-9">{{ form.nacionalidad }}</div>
+						</div>
+						<div class="row form-group">
+							<div class="col col-md-3">{{ form.descripcion.label }}</div>
+							<div class="col-12 col-md-9">{{ form.descripcion }}</div>
+						</div>
+						<div class="text-center">
+							<button type="submit" class="btn btn-primary">Registrar</button>
+							<button type="reset" class="btn btn-danger">Cancelar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		{% endif %}
+	</form>
+
+{% endblock body %}
+
+		<!--Al utilizar labels e inputs, asegurarse de que el campo name sea igual al del form creado para el modelo-->
+		<!--
+			<label>Nombre</label>
+			<input type="text" name="nombre">
+			
+			<label>Apellido</label>
+			<input type="text" name="apellido">
+			
+			<label>Nacionalidad</label>
+			<input type="text" name="nacionalidad">
+			
+			<label>Descripcion</label>
+			<input type="text" name="descripcion">
+			-->
